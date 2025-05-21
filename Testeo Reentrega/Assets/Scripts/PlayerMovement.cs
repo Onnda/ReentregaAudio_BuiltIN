@@ -17,6 +17,7 @@ public class FirstPersonController : MonoBehaviour
     public float upDownRange = 60f;
     private bool isGrounded;
 
+    public AudioSource footstepAudioSource; // Asigna el AudioSource desde el Inspector
     public Animator animator;
     
 
@@ -79,4 +80,10 @@ public class FirstPersonController : MonoBehaviour
     {
         isGrounded = false;
     }
+    public void PlayFootstep()
+    {
+        if(isGrounded)
+        footstepAudioSource.Play();
+    }
 }
+
