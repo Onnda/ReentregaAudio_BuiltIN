@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Inside
   - Outside
+  - HierbaEntrar
+  - HierbaSalir
   layers:
   - Default
   - TransparentFX
