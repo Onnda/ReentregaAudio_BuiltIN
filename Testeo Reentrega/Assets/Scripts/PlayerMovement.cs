@@ -18,12 +18,15 @@ public class FirstPersonController : MonoBehaviour
     private bool isGrounded;
 
     public AudioSource footstepAudioSource; // Asigna el AudioSource desde el Inspector
+    public AudioClip footstepDirt; // Asigna el clip de audio desde el Inspector
+    public AudioClip footstepGrass; // Asigna el clip de audio desde el Inspector
     public Animator animator;
     
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+     footstepAudioSource.clip = footstepDirt;
+    rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -79,6 +82,20 @@ public class FirstPersonController : MonoBehaviour
     void OnCollisionExit(Collision collision)
     {
         isGrounded = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch(other.tag)
+        {
+            case "HierbaEntrar":
+                footstepAudioSource.clip = footstepGrass;
+                break;
+            case "HierbaSalir":
+                footstepAudioSource.clip = footstepDirt;
+                break;
+        }
+        
     }
     public void PlayFootstep()
     {
