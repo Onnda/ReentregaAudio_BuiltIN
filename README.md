@@ -1,5 +1,3 @@
-Examen de Audio Apuntes
-
 1 - Music
 Add each track to the corresponding scene so that they start playing when the scene loads and keep playing looped.
 
